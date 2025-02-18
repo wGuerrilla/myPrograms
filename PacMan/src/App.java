@@ -1,8 +1,8 @@
-package src.App; // user defined package
 
 
-import javax.swing.JFrame;
-import java.io.InputStream;
+import javax.swing.JFrame; // Main Window for GUI elements
+
+
 
 public class App {
     public static void main(String[] args){

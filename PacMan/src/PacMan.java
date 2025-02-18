@@ -1,11 +1,7 @@
 
+
 import java.awt.*;
-import java.awt.event.*;
-import java.util.HashSet;
-import java.util.Random;
-import javax.swing.*;
-
-
+import javax.swing.JPanel;
 
 public class PacMan extends JPanel { // Extend Jpanel.. pacman grid inherits jpanel? 
     private int rowCount = 21;  
