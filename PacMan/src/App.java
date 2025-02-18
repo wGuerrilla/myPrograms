@@ -1,8 +1,6 @@
 
 
-import javax.swing.JFrame; // Main Window for GUI elements
-
-
+import javax.swing.JFrame;
 
 public class App {
     public static void main(String[] args){
