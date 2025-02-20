@@ -1,0 +1,126 @@
+Basic Java Fundamentals 
+Youtube - broCode
+
+public class Main{
+    public static void main(String[] args){
+        System.out.println("wrldhello");
+    }
+}
+// This is Source Code in a format humans can understand
+// Class is a collection of related code within. more details later.
+    // Within a class is whats called the main method. without this the code wont run.
+// System.out.print();  prints input into system
+// System.out.prinln(); THEN, creates a new line. you can also do \n 
+
+public class Main{
+    public static void main(String[] args){
+
+        System.out.println("wrldhello");
+    }
+}
+
+// Variable a placeholder for a value that behaves as the value it contains
+    x = 123, y = "hi", z = False
+    // variables can store numbers, words, or boolean values (T/F)
+    data types - boolean, int, double, char, String   // there are 8 data types , we will use 4    !!!! Remember variables =/ datatypes !!!!!!
+    size - 1 bit , 4 bytes, 8 bytes, 2 bytes, varies  // how much memory it holds
+    PRimitive/                                          // Primitive datatypes - 8 types, stores data, can only hold 1 value, less memory, fast
+    REference - PR, PR, PR, PR, RE;                     // Reference datatypes - unlimited(userdefine), stores an address, hold more than 1 value, more memory, slower
+    value = true or false, -2billions - 2 billions,       // what each data type does.
+            decimal up to 15 digits .0000., single ASCII value,
+            "anything"
+    // Declaration - creating a variable(datatype) requires us to declare it(variable name).  dataType variable(name);
+    int x;
+    // Assignment - taking the variable and assign it equal to a value                         variable(name) = value;
+    x = 123;
+    // Initialization - take the datatype followed by a variableName assign it equal to a value;    dataType variable(name) = value;
+    int x = 123;
+
+// swaping two variables.
+    // koolAid - if we have a glass of kool aid in Y, and a glass of Water in X, we need a third Glass to safely switch X and Y WITHOUT storing kool-aid in both values.4
+    String x ="water";                  temp = x;   
+    String y ="koolAid";                x = y;
+    String temp;                        y = temp;
+
+    // you either get kool-aid in both or water everywhere with temp you create a temporary storage.
+// Using Scanner to Accept User-Input
+// Scanner is found in the java utility package of your library 
+    // we need to import it 
+
+    import java.util.Scanner;
+
+    public class Main{
+        public static void main(String[] args){
+            Scanner scannerName = new Scaneer(System.in);  // we are performing a litte bit of (OOP)objectOreintedProgramming
+            // Ex. asking for a name
+            System.out.println("Name;");
+            String name = scanner.nextLine();    // declare a variable, 4 string; take user input and assign it to a variable \\
+            System.out.println("hello" + name);
+            System.out.println("Numb;");
+            Int oh = scanner.nextInt();    // declare a integer variable  BE AWARE  when using nextInt and then going back to a STRING(nextLine)
+            System.out.println(oh + "AllIzzWell"); // the programs will skip the user input because of an existing \n  within scanner that is active. (idk ) 
+            scanner.nextLine(); // scanner will read \n to clear it out do this.
+
+
+        }
+    }
+// Expressions 
+// a combination of operands & operators
+// operands is the values, variables, numbers, or different quantities
+// operators are the arithmetic sybols ( + , - , * , / , % , etc.)
+ //EX.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+chatgpt -- 
+Variables - think of them as containers that store data values
+    ex. int number = 5; // number is the variable that holds integer values
+Methods - Blocks of code that perform specific tasks and can be called when needed.
+    ex. public void greet(){
+        System.out.println("hello world.")
+    }
+Object-Oriented Programming (OOP) Concepts
+Java is a object-oriented programming language.
+which means it uses objects to model real-world entitties.
+dont get it ? Classes and Objects 
+Class : A blueprint for creating objects. it defines attributes(variables) and behaviors(methods).
+Objects: An instance of a class. It has its own state and can perform behaviors defined by its class.
+    ex. public class Unkown{
+        //Attributes 
+        String color;
+        String model;
+        //Method
+        public void Beast(){
+            System.out.println("The Guerrilla on Da MOVE")
+        }
+    }
+    //Creating an object
+    Guerrilla myBeast = new Unkown();
+    myBeast.color = "darkPurple";
+    myBeast.weight = "300Ibs";
+    myBeast.move();
+Inheritance : A mechanism where one class(subclass) inherits attributes and methods
