@@ -18,8 +18,13 @@ public class Main{
         System.out.println("wrldhello");
     }
 }
+// Scope of Variable
+// can it be seen?
+// Scope defines the visibility and lifetime of variables.
+// Variables can be global (Access throughout the whole progam)  Public 
+//  Or local ( Limited through a specific block)                 Private 
 
-// Variable a placeholder for a value that behaves as the value it contains
+// Value/Variable a placeholder for a value that behaves as the value it contains
     x = 123, y = "hi", z = False
     // variables can store numbers, words, or boolean values (T/F)
     data types - boolean, int, double, char, String   // there are 8 data types , we will use 4    !!!! Remember variables =/ datatypes !!!!!!
@@ -29,13 +34,12 @@ public class Main{
     value = true or false, -2billions - 2 billions,       // what each data type does.
             decimal up to 15 digits .0000., single ASCII value,
             "anything"
-    // Declaration - creating a variable(datatype) requires us to declare it(variable name).  dataType variable(name);
+    // Declaration - Specifying\Creating a variable(datatype) requires us to declare it(variable name).  dataType (variablename);
     int x;
-    // Assignment - taking the variable and assign it equal to a value                         variable(name) = value;
+    // Assignment Operator ( = )  Value\Variable - taking the variable and assign it equal to a value                         variable(name) = value;
     x = 123;
-    // Initialization - take the datatype followed by a variableName assign it equal to a value;    dataType variable(name) = value;
-    int x = 123;
-
+    // Initialization - take the datatype followed by a variableName assign it equal to a value;    dataType v(ariablename) = value;
+    int x = 123; // You Initialize when after assignment operater. 123. got it ?
 // swaping two variables.
     // koolAid - if we have a glass of kool aid in Y, and a glass of Water in X, we need a third Glass to safely switch X and Y WITHOUT storing kool-aid in both values.4
     String x ="water";                  temp = x;   
@@ -50,16 +54,17 @@ public class Main{
     import java.util.Scanner;
 
     public class Main{
-        public static void main(String[] args){
-            Scanner scannerName = new Scaneer(System.in);  // we are performing a litte bit of (OOP)objectOreintedProgramming
+        public static void main(String[] args){ // Preferable to use sc instead of a scannerName
+            Scanner sc = new Scaneer(System.in);  // we are performing a litte bit of (OOP)objectOreintedProgramming
             // Ex. asking for a name
             System.out.println("Name;");
-            String name = scanner.nextLine();    // declare a variable, 4 string; take user input and assign it to a variable \\
+            String name = sc.nextLine();    // declare a variable, 4 string; take user input and assign it to a variable \\
             System.out.println("hello" + name);
             System.out.println("Numb;");
-            Int oh = scanner.nextInt();    // declare a integer variable  BE AWARE  when using nextInt and then going back to a STRING(nextLine)
+            Int oh = sc.nextInt();    // declare a integer variable  BE AWARE  when using nextInt and then going back to a STRING(nextLine)
             System.out.println(oh + "AllIzzWell"); // the programs will skip the user input because of an existing \n  within scanner that is active. (idk ) 
-            scanner.nextLine(); // scanner will read \n to clear it out do this.
+            sc.nextLine(); // scanner will read \n to clear it out do this.
+            sc.close(); // it is a good practice to close scanner
 
 
         }
@@ -67,18 +72,186 @@ public class Main{
 // Expressions 
 // a combination of operands & operators
 // operands is the values, variables, numbers, or different quantities
-// operators are the arithmetic sybols ( + , - , * , / , % , etc.)
- //EX.
+// operators are the arithmetic sybols ( + , - , * , / , % , etc.)  //  ( <= , >+ , ==)  a single equal assigns the variable
+// // Constant - Valuethat cannot be changed
+    fianl double dime = 0.10;
+/////////
+    Int dead = 10;
+    double dead = (double)dead * 3; 
+    // TYPE CASTING / use it appropiately.
+    // Implcit casting : Automatically by the compilar
+    // Explicit casting : DOne explicitly by the programmer using (conversion) operators();
+    dead-- , dead++   // subtract/add
+
+// Math Class Expressions
+ public class MainP{
+    public static void main(String[] args){
+        double x = 3.14;
+        double y = -10
+        // Method 1 - Math.max(x, y) - the larger of two numbers
+        // Method 2 - Math.min(x, y) - the lesser of two numbers
+        // Method 3 - Math.abs(x) - absolute value
+        // Method 4 - Math.sqrt(x) - Square root
+        // Method 5 - Math.round(x) - rounded
+        // Method 6 - Math.ceil(x) - round up
+        // Method 7 - Math.floor(x) - round down
+        z = Math.sqrt((x*x)+(y*y)) // be able to manipulate formulas.
+    }
+ }
+ // Generating Random values
+ import java.util.Random;
+
+    public class Main{
+        public static void main(String[] args){
+            // Random can be done Alot of ways. we are going to use
+            Math.random() method;
+            //ex
+            int variableName = (int)(Math.random() * 101); // 101 allows us to get a number from 0 - 100 0;
+    }
+// If statements
+public static Main{
+    public static void main(String[] args){
+        // If statement makes a TRUE or FALSE LOOP. if TRUE it exits the LOOP.
+        // performs a block of code if it's condition evaluataes to true.^
+        int age = 18;
+
+        if(age >= 18){ // if true print
+            System.out.println("u r grown");
+        }else if(age >= 75){// check more then one condition
+            System.out.println("wise men"); // if you are trying to get this number then move it to the main if (){};
+        }   // otherwise. it would print 18 and the rest of the block gets ignored. since the first statement is true. loops get it?
+        else{ // if its false then print
+            System.out.println("u r young");
+        }
+    }
+} Remember if( a == b && a == c ) is legal. if( a == b && c) is NOT legal // c needs a comparision.
+// File
+// class - An abstract representation of file and directory pathnames
+import java.io.FIle;
+import java.util.Scanner;
+
+public clase Main{
+    public static void main(String[] args){
+        // detecting to see if you have the file in the same folder.
+        File file = new File("fileName.txt");   // constructer Object 
+        // what if is located somewhere else?
+        File file = new File("C:/Users/Wahab/Desktop/fileName.txt")
+
+        // code from lecture
+             File file = new File("example.txt");
+             Scanner sc = new Scanner(file);
+             while(sc.hasNextLine())
+             System.out.println(sc.nextLine());
+    }
+}
+// Breaking it down:
+// File → A class in Java from the java.io package that represents a file or directory path.
+// file → This is the variable name (object reference). It will hold a reference to the File object.
+// new → This is a keyword in Java that creates a new object in memory.
+// File("example.txt") → This calls the constructor of the File class and passes "example.txt" as an argument, 
+// meaning we are creating a File object representing "example.txt".
+// Scanner(file) → Calls the constructor of the Scanner class and passes the file object as an argument, 
+// meaning we are setting up the Scanner to read from "example.txt".
+// while(sc.hasNextLine())
+// This is a while loop that checks if there are more lines left to read in the file.
+// while → A looping statement that keeps executing as long as the condition inside () is true.
+// sc.hasNextLine() → A method of Scanner that checks if there is another line to read in the file.
+// If the file has more lines, it returns true, and the loop continues.
+// If no more lines exist, it returns false, and the loop stops.
+// sc.nextLine() → A method of Scanner that reads and returns the next line from the file.
+// 1- A File object is created to reference "example.txt".
+// 2- A Scanner object is created to read the file.
+// 3- The while loop checks if there's another line in the file.
+// 4- If there is, the line is read and printed.
+// 5- The loop continues until all lines are read.
+
+
+// Flow Control in Java (or Any Programming Language)
+    Flow control refers to how a program makes decisions and executes code 
+        in a specific order based on conditions, loops, and function calls
+        
+        Java provides three main types of flow control:
+
+        Sequential Flow → Default execution (line-by-line).
+        Selection (Decision-Making) Statements → if, if-else, switch
+        Iteration (Looping) Statements → for, while, do-while
+        Jump Statements → break, continue, return
+// For Loop (Fixed Reps)
+    A for loop is used when the number of iterations is known beforehand.
+// Loop iteration : Every time the loop runs and executes its statements, 
+    // that is one iteration.
+//
+for (initialization; condition; update){ // EX. (int i = 1 ; i <= 5; i++)  Must use i = iteration
+        Initialization → Runs once before the loop starts.
+        Condition → Checked before each iteration. If true, the loop runs; otherwise, it stops.
+        Update → Changes the loop variable after each iteration.
+}
+// While Loop (Conditon - Based)
+A while loop is used when the number of iterations is not known in advance 
+    but depends on a condition.
+    
+while (condition){
+    Condition → Checked before each iteration.
+    If true, the loop runs; if false, it stops.
+    No automatic update, so you must update the loop variable inside manually.
+}
+Understand ? let me explain.
+    public class WhileLoopExample{
+        public static void main(String[] args)
+        int = 1;
+
+        while (i <= 5){
+            System.out.println("Number: " + i)
+            i++ // Increements to avoid infinite 
+            ..// increase value iteration by 1 loop. if
+            /// this is not place it would remain 1 forever.. looping as long
+            /// as the condition is true.
+        }
+    }
+    or 
+        public static void main(String[] args){ /// The loop will keep prompting the user
+        while(name.isBlank()){  /// to enter a name . if blank it loops under 
+            System.out.println("Enter name : "); /// name variable is give by user input
+            name = scanner.nextLine();
+        }
+            System.out.println("Hello " + name);
+    }
+// Do-While Loop
+ do {                                   // Smiliar to while.. 
+    System.out.println("Enter name : ");  // it will print the block of code once then check the condition
+    name = scanner.nextLine() // rather then the while loop checking the condition first then printing the block of code.
+ } while(name.isBlank());
+    System.out.println("Hello " + name);
+///   Some special keywords to take note.  ////
+break; - stops Loop Immediately
+ for(int i = 1; i <= 5; i++){
+    if (i == 3 ){
+        break; // Stop the loop when i == 3 
+    }
+    System.out.println(i); 1, 2 ,3
+ }
+ continue; - Skip Current Iteration
+ for(int i = 1; i <= 5; i++){
+    if (i == 3){
+        continue; // Skip this iteration. skips 3 when i == 3.
+    }
+    System.out.println(i); 1, 2, 4, 5,
+ }
+/// Functions ( parameters and arguments ) /// 
+    /// they are built to perform a specific task. This helps organizee and reuse code.
+        public int add( int a, int b){ // visibility dataType variableName()
+            return a + b;
+        }
+/// The name of the function is add, it must return an integer
+/// The parameters are two integers a and b.
+/// When they get a value, they become arguments.
+/// Functions that are not void, are giving functions.
+/// The retunr value should be used, storid
 
 
 
 
-
-
-
-
-
-
+// Logical Operators. 
 
 
 
@@ -124,3 +297,40 @@ Objects: An instance of a class. It has its own state and can perform behaviors 
     myBeast.weight = "300Ibs";
     myBeast.move();
 Inheritance : A mechanism where one class(subclass) inherits attributes and methods
+  // OPTIONAL : GENERATING RANDOM.
+                //Random variableName = new Random();  // dataType variableName remember?
+                //int x = variableName.nextInt();
+                // understanding that if you want a number from 0 - 6... nextInt(7)
+                //double y = variableName.nextDouble();
+                // Manipulate as need for each dataType 
+            }
+// Graphical User Interface
+// we the to impo+
+import from library.;
+import javax.swing.JOptionPane;
+
+public class Main{
+    public static void main(String[] args){
+        String name = JOptionPane.showInputDialog(" blah "); // we need user input stored a string variable
+        JOptionPane.showMessageDialog(null, " hi " + name); // show output of user input // 
+        int ah = Integer.parseInt // when using dataType use the Apporiate Assignment to Intialize ?
+           (JOptionPane.ShowInputDIalogBox(" aaa"))
+         
+    }
+}
+// Switches (Efficent If statement) 
+// a statement that allows a variable to be tested for equality against a list of values, it cane execute a number of possible paths.
+public class Main{
+    public static void main(String[] args)
+    String day ="Jummah"; // this is our first case. we are going to be using this to compare to the case..
+    switch(day) { // manipulates any dataType
+        case "yak" : System.out.println(" kho "); // case variableName : if there is a match what do you want to do ? 
+        break;
+        case "doo" : System.out.println(" kho ");
+        break;
+        // breaks off the code. why its important?
+        // it prints all the code if not placed.
+        default : System.out.println("chi meehgee");
+        // if not is conditions is true then. it prints this. 
+    }
+}
