@@ -1,5 +1,9 @@
 Basic Java Fundamentals 
-Youtube - broCode
+
+    Resources
+        Youtube - broCode
+            Dallas College - COSC 1437
+                ChatGpt
 
 public class Main{
     public static void main(String[] args){
@@ -72,7 +76,7 @@ public class Main{
 // Expressions 
 // a combination of operands & operators
 // operands is the values, variables, numbers, or different quantities
-// operators are the arithmetic sybols ( + , - , * , / , % , etc.)  //  ( <= , >+ , ==)  a single equal assigns the variable
+// operators are the arithmetic sybols ( + , - , * , / , % )  //  ( <= , >= , < , > , ==, != )  a single equal assigns the variable
 // // Constant - Valuethat cannot be changed
     fianl double dime = 0.10;
 /////////
@@ -230,6 +234,7 @@ break; - stops Loop Immediately
     }
     System.out.println(i); 1, 2 ,3
  }
+
  continue; - Skip Current Iteration
  for(int i = 1; i <= 5; i++){
     if (i == 3){
@@ -237,20 +242,203 @@ break; - stops Loop Immediately
     }
     System.out.println(i); 1, 2, 4, 5,
  }
-/// Functions ( parameters and arguments ) /// 
-    /// they are built to perform a specific task. This helps organizee and reuse code.
-        public int add( int a, int b){ // visibility dataType variableName()
+///A Function (method) is a block of code that does a specific task. It can:
+/// Take inputs (called parameters). parameters are (        ).
+/// Return a value (or just perform an action).
+/// Be reused multiple times without repeating code.
+        public int add( int a, int b){ // visibility dataType variableName(declared dataType)
             return a + b;
         }
+
 /// The name of the function is add, it must return an integer
 /// The parameters are two integers a and b.
 /// When they get a value, they become arguments.
-/// Functions that are not void, are giving functions.
-/// The retunr value should be used, storid
+/// Functions that are not VOID, are giving functions.
+        public class Main{
+            public static void main(String[] args){
+                greet();
+            }
+            public static void greet(){
+                System.out.println("hello");
+            }
+        }
+        Since it doesnt return a value, theres no need for return.
+    When to Use return?
+    // If a function returns a value, that value should be:
+    // Stored in a variable , Used in a condition , Passed into another function
+    // KEEP IN MIND : void functions do not return value
+            public class Main{
+                public static void(String[] args){
+                    int sum = add(4,20); // storing result
+                    if (sum > 20){
+                        System.out.println("bigGeekn")
+                    }
+                }
+                public static int add(int a, int b){
+                    return a + b;
+                }
+            }
+// A class is a blueprint that contains methods and variables. In Java, every program must have a class.
+// the add() is a method. we can do the same with other operators.
+// Code from lecture
+class Main{
+    // Not static so we need an object to call it.
+    public int addNumbers(int a, int b){
+        int sum = a + b;  // once it adds. a and b are no longer visible 
+        return sum;    // until we return it into sum
+        // creating the function
+    }
+    // now to call the function to main // teacher likes static.
+    public static void main(String[] args){
+        int num1 = 25; 
+        int num2 = 15;
+        Main obj = new Main();  // Creating an object. remember new is keyword to creating objects
+        int result = obj.addNumbers(num1, num2); // Calling the addNumbers method using the object
+        System.out.print.ln("sum is " + sum);
+    }
+}
+// allows program to run with an object 
+// what does it look like without object?
+class Main {
+    // Now static, so we don't need an object to call it
+    public static int addNumbers(int a, int b) {
+        return a + b;
+    }
 
+    public static void main(String[] args) {
+        int num1 = 25, num2 = 15;
+        
+        // Calling the method directly without an object
+        int result = addNumbers(num1, num2);
+        
+        System.out.println("Sum is " + result);
+    }
+}
 
+// !! static means belonging to the class,
+// while non-static means belonging to an object. aka Instance Variables. 
+// its not fixed. each object has its own copy
+/// String Methods.
+    public class Main{
+        public static void main(String[] args){
+            String name = "bro";
+            String nameTwo = "hoee";
+            boolean result = name.equals("bro"); //comparing--- keep in mind every word and uppercase has to match.
+            int result = name.length(); // how many numbers are in the string in total
+            boolean result = name.equalsIgnoreCase("BRO") // Ignores upperCASE lowerCASE. hence da name
+            // you can also just
+            /// System.out.println(name.compareTo(nameTwo);  which gives 0 for true 1 for false
+            /// you can also use IgnoreCase just add it after To .
+        /// CODE FROM LECTURE
+         if(name.equals(nameTwo)){
+            System.out.println("True")} else{
+            System.out.println("False")} // Same Concept.
+            // if name > nameTwo returns postive value opposite is negative value 
+            // if both are same numbers in total it will return 0.
+        }
+    }
+// Arrays and ArrayList
 
+import java.util.ArrayList;
+import java.util.Arrays;
 
+class Main{
+    public static void main(String[] args){
+        int[] Arrays = new int[2]; // Declaring an integer array with a fixed size of 2
+        Arrays[0] = 1; // any number to be stored
+        Arrays[1] = 2;
+        System.out.println(Arrays[0]); 
+        int[] myArrays = {1, 2, 3, 4, 5}; // this is a SHORT CUT to the above method.^
+        System.out.println(myArrays[0]);  GOT IT 
+
+        // Declaring an ArrayList of  Type Casting <dataTypes> it can only hold objects. 
+        ArrayList<Integer> ArrList = new ArrayList<Integer>();
+        ArrList.add(1); 
+        ArrList.add(2);
+        ArrList.add(3);
+        System.out.println(ArrList.get(2)); // Access using .get( )
+    }
+}Arrays → Fixed-size collections of elements of the same type.
+ArrayLists → Dynamic lists that can grow and shrink as needed.
+import java.util.ArrayList; // Importing ArrayList class
+// FOR LOOP  with Arrays. 
+        System.out.println("Array Elements:");
+        for (int i = 0; i < numbers.length; i++) { 
+            System.out.println("Index " + i + ": " + numbers[i]);
+        }
+        // use appropiate typecasting on dataTypes.
+        ArrayList<String> programmingLanguages = new ArrayList<>();
+
+        // Adding 3 words to the ArrayList
+        programmingLanguages.add("Java"); 
+        programmingLanguages.add("Python"); 
+        programmingLanguages.add("C++");
+
+        // Printing all elements using a loop
+        System.out.println("ArrayList Elements:");
+        for (int i = 0; i < programmingLanguages.size(); i++) {  // you wont know the size for sure because its dynamic
+            System.out.println("Index " + i + ": " + programmingLanguages.get(i));
+        }
+    }
+// Arrys as Function Parameters
+// This makes it easier to work with multiple values at once instead of passing them individually.
+    public class ArrayAsFunction{
+        int [] numbers = {1, 2, 3}; // Declare and initialize an array
+        printArray(numbers); // Passing the entire array to a function 
+    }
+    public void printArry(int[] arr){ // This is a method that takess an integer array.
+        for(int num : arr){ // Assign num to each loop cycle (3)
+            System.out.println(num); // goes through each number ... interesting how we dont have to use int i = 0....
+        }
+    }
+// since void is place we only get values. and return is not needed.
+When Should You Use void?
+✔ When printing messages (System.out.println(...)).
+✔ When modifying variables but not needing a return value.
+✔ When performing an action, like updating a database or writing to a file.
+/////////////////////////////////////////////////////////////////////////////////
+/// ArrayList as Function Parameters
+    import java.util.*;
+    Array<String> names = new ArrayList<>(); // The <> (diamond operator) means we don’t need to specify String again.
+    names.add("Alice");
+    names.add("Bob");
+    printList(names);
+
+    public static void printList(ArrayList<String> list ) { 
+        for (String item : list){System.out.println(item)}; // this outputs the string created above. 
+    }
+/// Arrays and ArrayList as Return values
+public int[] createArray(){ 
+    return new int[] {1, 2, 3}; 
+}
+
+public static ArrayList<String> createArraylist(){
+    ArrayList<String> list = new ArrayList<>();   // we had to add createArrayList(){} function to call it to the main method 
+    list.add("Dawg"); 
+    list.add("Barks");
+    return list; 
+}
+//////// MAIN METHOD //////
+// public static void main(String[] args) {
+//        // Calling the method that returns an array
+//        int[] numbers = createArray();  // create a name for method
+//        
+//        // Printing the array elements using a loop
+//        System.out.println("Array Elements:");
+//        for (int num : numbers) {   // initiating num = for numbers 
+//            System.out.println(num); // whereas a string we have to use String name : name : syntax
+//        }
+//
+//        // Calling the method that returns an ArrayList
+//        ArrayList<String> words = createArrayList(); 
+//        
+//        // Printing the ArrayList elements
+//        System.out.println("ArrayList Elements:");
+//        for (String word : words) {   // the words and numbers : after the name seems to be from the system.
+//            System.out.println(word);
+//        }
+//    }
+////////////////
 // Logical Operators. 
 
 
