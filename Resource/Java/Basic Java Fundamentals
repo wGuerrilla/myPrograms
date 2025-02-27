@@ -433,12 +433,196 @@ public static ArrayList<String> createArraylist(){
 //        ArrayList<String> words = createArrayList(); 
 //        
 //        // Printing the ArrayList elements
-//        System.out.println("ArrayList Elements:");
+//        System.out.println("ArrayList Elements:");git
 //        for (String word : words) {   // the words and numbers : after the name seems to be from the system.
 //            System.out.println(word);
 //        }
 //    }
 ////////////////
+
+
+
+This one is a handful of information so I do my best for you.
+
+            ///Understanding Classes 
+    ///a class is a blueprint for creating objects
+/// It defines attributes (fields/variables) and behaviors (methods/functions).
+   attribute : (characteristics) Behaviors : (actions)
+/// Basically as far as i understand  a class is not an actual object but defines what an object should look like. (characteristics)
+    /// Attributes are variables inside a class that holds information about an object.
+        public class Dog    {
+            String name;    // no dog exists yet it just describe what the  // THIS IS AN ATTRIBUTE
+            int age;        // dog will look like. Class blueprint is NOT a real — it’s just a plan.
+            String breed;   } // - this is how we store information on the plan. 
+            ///Creating an object
+    //An object is a real thing made from a class.
+/// Dog refers to Dog class 
+    public static void main(String[] args) {
+        Dog myDog = new Dog(); // myDog is the name of the object
+        // everytime you see, new, it creates an object in da computer.
+        myDog.name = " buddy" ;  
+        myDog.age = 3;  }// connect object with attribute. and assign it.  // THESE ARE ATTRIBUTE ASSIGNMENTS.
+
+// Methods : define what an object can do .
+void bark() {
+    System.out.println(name + " says Woof! Woof!");
+}
+
+//  What are Access Modifiers?
+Access modifiers control who can see and use the variables (attributes) and methods (behaviors) of a class.
+
+Think of a house with different rooms:
+
+Public  → Any file can open and edit it.
+Private → Only that specific file can access it. password-proctecd only u use it.
+Protected  → Files in the same folder or related subfolders can access it.
+Default  → Only files in the same folder can open it.
+//////////////////////////////////////////////////////////////////////////////////////////
+    public class Dog{  // Accessible Anywher on computer.
+        private String name; // restricted access within Dog{} // remember this is also called fields
+        private int age; 
+        private String breed; //  creating a dog object and assigning it will not work since these are private.
+// Private attributes can only be accessed through methods inside the class.
+        public void setName(String name){  // Use this method. 
+            this.name = name; // assign provided value to private attributes.
+        }
+        public String getName(){
+            return name;   // we allow the ability to set the name and get it when we need to ouput.
+        }
+    public class Main{
+        public static void main(Stringp[] args){
+            Dog myDog = new Dog();
+            myDog.setName("Buddy");
+            System.out.println("Dog's Name: " + myDog.getName()); // with this we can access private attributes.
+        }
+    }
+}
+// Protectected - if same folder - this code isint necessary.
+// if in another folder.
+public class Animal { 
+    protected String beasts ;  
+    protected void makeSound() {
+        System.out.println("grr");
+    }
+}
+// 
+import folder.javaName; // optional... 
+public class Dog extends Animal { // method to access protected.
+    public Dog() {
+        beasts = "Dog";
+    }
+}   public void bark(){
+    makeSound();
+    System.out.println("Woof.")
+}  
+// Default - default access
+class Dog { }
+public class Main { public (string[]){  myDog.name =" yapp"}}  // get the picture?
+
+
+
+                    /// Constructors
+/// a special method that Runs automatically when objects initialize
+        /// has the same name as the class. no return type.
+// Default Constructor 
+// a no-argument constructor provided by Java if no other constructors are defined. can be explictly defined
+public Car(){
+    make = "Umkown";
+    model = " Unkown";
+    year = 0;
+}
+// Dog Class with Constructor.
+    public class Dog{
+        private String Name;
+        private int age;
+        private String breed;
+        
+        public Dog(String name, int age, String breed){
+            this.name = name;
+            this.age = age;
+            this.breed - breed;
+        }
+    }
+     public class(){ } -   Dog myDog = new Dog("Buddy", 3 , " Golden ") // Automatically setting objects directly
+
+// Multiple Constructors( Overloading)
+// provide flexibility when creating objects:
+    public Dog(String name){    // either by 
+        this.name = name;   // create it with a name 
+    }
+    public Dog(String name, int age){
+        this.name = name;   // or also with an age.
+        this.age = age;
+    }
+// Introducing the Car Class
+// ex attributes : make , model , year. 
+// ex metods : start(), stop()
+public class Car{
+    private String make;
+    private String model;
+    private int year;
+        public Car(){
+            this.make = "n/a";   // defualt code outputed if  = new car () blank
+            this.major = "n/a";
+            this.year = "n/a";
+        }
+    // Since the variables are private we need to use get() Set()....
+    public Car(String make, String model, int year){
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        public string getMake(){
+            return " make"+ make;
+        }   
+        public void setMake(String make){ 
+        this.make = make; // this gives us the ability to .setMake later on being able to change.
+        }
+    }
+}
+public class (){} - Car myCar = new Car("Toyota", "Camry", 2022)
+    System.out.println(myCar.make + " " + myCar.model);
+
+okay.. so  // private - constructor this. - getter return. - setter method for future updates. and Calling class.
+
+// Encapsulation prevents direct access to attributes. We use getter methods to read data and setter methods to modify data safely.
+// really helps protect data. 
+// Encapsulation process - Declare variables as private , 
+// provide public getter and setter methods.
+
+// Unified-Modeling-Language 
+UML shows attributes and methods in a class.
+//  a visual representation of a design
+    // key elements Classes, Attributes , Methods.
+private : denoted by - 
+public : denoted by + 
+protected : denoted by #
+        Car
+---------------------         // use to plan and visualize projects
+- engineStatus:boolean
+- fuelLevel:double
+----------------
++ startEngine()
++ stopEngine()
++ refuel(amount)
+Best practices 
+1 - keep Attributes Private
+2 - provide necessary get and set
+3 - use final for immutable data // final dollar, which a value that cannot change Use FINAL. something not to change
+4 - Document methods // do comments
+
+// Abstraction - Hiding complex details, showing only necessary parts.
+
+
+
+
+
+PRACTICE ACTITVITY (OPTIONAL)
+// create a student class with:
+// Fields : name, id, gpa.
+// Constructor to initialize all fields. 
+// Getter and Setter method. 
+//Write the code to create and display a student object.
+//we can also do a car and make two cars and have them race.
 // Logical Operators. 
 
 
