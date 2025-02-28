@@ -4,7 +4,7 @@ Basic Java Fundamentals
         Youtube - broCode
             Dallas College - COSC 1437
                 ChatGpt
-
+--------------------------------------------------------------------
 public class Main{
     public static void main(String[] args){
         System.out.println("wrldhello");
@@ -108,8 +108,7 @@ public class Main{
     public class Main{
         public static void main(String[] args){
             // Random can be done Alot of ways. we are going to use
-            Math.random() method;
-            //ex
+            Math.random(); 
             int variableName = (int)(Math.random() * 101); // 101 allows us to get a number from 0 - 100 0;
     }
 // If statements
@@ -129,47 +128,6 @@ public static Main{
         }
     }
 } Remember if( a == b && a == c ) is legal. if( a == b && c) is NOT legal // c needs a comparision.
-// File
-// class - An abstract representation of file and directory pathnames
-import java.io.FIle;
-import java.util.Scanner;
-
-public clase Main{
-    public static void main(String[] args){
-        // detecting to see if you have the file in the same folder.
-        File file = new File("fileName.txt");   // constructer Object 
-        // what if is located somewhere else?
-        File file = new File("C:/Users/Wahab/Desktop/fileName.txt")
-
-        // code from lecture
-             File file = new File("example.txt");
-             Scanner sc = new Scanner(file);
-             while(sc.hasNextLine())
-             System.out.println(sc.nextLine());
-    }
-}
-// Breaking it down:
-// File → A class in Java from the java.io package that represents a file or directory path.
-// file → This is the variable name (object reference). It will hold a reference to the File object.
-// new → This is a keyword in Java that creates a new object in memory.
-// File("example.txt") → This calls the constructor of the File class and passes "example.txt" as an argument, 
-// meaning we are creating a File object representing "example.txt".
-// Scanner(file) → Calls the constructor of the Scanner class and passes the file object as an argument, 
-// meaning we are setting up the Scanner to read from "example.txt".
-// while(sc.hasNextLine())
-// This is a while loop that checks if there are more lines left to read in the file.
-// while → A looping statement that keeps executing as long as the condition inside () is true.
-// sc.hasNextLine() → A method of Scanner that checks if there is another line to read in the file.
-// If the file has more lines, it returns true, and the loop continues.
-// If no more lines exist, it returns false, and the loop stops.
-// sc.nextLine() → A method of Scanner that reads and returns the next line from the file.
-// 1- A File object is created to reference "example.txt".
-// 2- A Scanner object is created to read the file.
-// 3- The while loop checks if there's another line in the file.
-// 4- If there is, the line is read and printed.
-// 5- The loop continues until all lines are read.
-
-
 // Flow Control in Java (or Any Programming Language)
     Flow control refers to how a program makes decisions and executes code 
         in a specific order based on conditions, loops, and function calls
@@ -440,8 +398,6 @@ public static ArrayList<String> createArraylist(){
 //    }
 ////////////////
 
-
-
 This one is a handful of information so I do my best for you.
 
             ///Understanding Classes 
@@ -470,8 +426,6 @@ void bark() {
 
 //  What are Access Modifiers?
 Access modifiers control who can see and use the variables (attributes) and methods (behaviors) of a class.
-
-Think of a house with different rooms:
 
 Public  → Any file can open and edit it.
 Private → Only that specific file can access it. password-proctecd only u use it.
@@ -511,9 +465,10 @@ public class Dog extends Animal { // method to access protected.
     public Dog() {
         beasts = "Dog";
     }
-}   public void bark(){
+     public void bark(){
     makeSound();
     System.out.println("Woof.")
+    }
 }  
 // Default - default access
 class Dog { }
@@ -525,13 +480,13 @@ public class Main { public (string[]){  myDog.name =" yapp"}}  // get the pictur
 /// a special method that Runs automatically when objects initialize
         /// has the same name as the class. no return type.
 // Default Constructor 
-// a no-argument constructor provided by Java if no other constructors are defined. can be explictly defined
+// a no-argument constructor provided by Java if no other constructors are defined. can be explictly defined 
 public Car(){
     make = "Umkown";
     model = " Unkown";
     year = 0;
 }
-// Dog Class with Constructor.
+// Dog Class with Constructor and private.
     public class Dog{
         private String Name;
         private int age;
@@ -543,7 +498,7 @@ public Car(){
             this.breed - breed;
         }
     }
-     public class(){ } -   Dog myDog = new Dog("Buddy", 3 , " Golden ") // Automatically setting objects directly
+     public class(){ } -   Dog myDog = new Dog("Buddy", 3 , " Golden ") // Automatically setting objects directly able to repeat this code.
 
 // Multiple Constructors( Overloading)
 // provide flexibility when creating objects:
@@ -572,7 +527,7 @@ public class Car{
         this.model = model;
         this.year = year;
         public string getMake(){
-            return " make"+ make;
+            return make;
         }   
         public void setMake(String make){ 
         this.make = make; // this gives us the ability to .setMake later on being able to change.
@@ -582,7 +537,7 @@ public class Car{
 public class (){} - Car myCar = new Car("Toyota", "Camry", 2022)
     System.out.println(myCar.make + " " + myCar.model);
 
-okay.. so  // private - constructor this. - getter return. - setter method for future updates. and Calling class.
+okay.. so  // private - constructor blank and one with all dataTypes. - getter return to make it public . - setter method for future updates. and Calling class.
 
 // Encapsulation prevents direct access to attributes. We use getter methods to read data and setter methods to modify data safely.
 // really helps protect data. 
@@ -610,7 +565,372 @@ Best practices
 3 - use final for immutable data // final dollar, which a value that cannot change Use FINAL. something not to change
 4 - Document methods // do comments
 
+// Strings, Wrapper Classes, and Random Numbers 
+    //A String is a sequence of characters (letters, numbers, symbols).
+    //Example: "Hello, world!"
+    //Strings are immutable, meaning once created, they cannot be changed.
+    public class Main {
+        public static void main(String[] args) {
+            // Declaring a string
+            String message = "Hello, world!";
+            
+            // Printing the string
+            System.out.println(message); // Output: Hello, world!
+        }
+    }
+    
+//Class : Java Strings are objects of the String Class, they have useful methods
+//length() returns the length of the string.
+    String word = "Java";
+    System.out.println(word.length());  // Output: 4
+//charAt(Index) returns the character at a specific index..
+    String word = "Java";
+    System.out.println(word.charAt(1));  // Output: 'a' (Index starts at 0)
+//subString(start, end) Extracts a portion of the string. 
+    String sentence = "Hello, Java!";
+    String part = sentence.substring(7, 11); // Extracts "Java"
+//toUpperCas() and toLowerCase() change case. 
+String text = "HeLLo";
+System.out.println(text.toUpperCase()); // Output: HELLO
+System.out.println(text.toLowerCase()); // Output: hello
+
+// String Concatenation
+    // - Use the "+" operator 
+        String firstName = "Joe";
+        String lastName = "Doe";
+        String fullName = firstName + " " + lastName;
+        System.out.println(fullName); // Output: Joe Doe
+ 
+
+// Wrapper Classes 
+// Wrapper classes convert primitive types (int, double, boolean) into objects.
+// They allow objects to store primitive values.
+Primitive Type  -	Wrapper Class
+        int     -	Integer
+        double  -	Double
+        boolean -	Boolean
+        char    -	Character
+
+//Boxing & Unboxing (Converting Primitives & Objects)  // converts string of numbers to an wrapper class^
+    // boxing
+    int num = 10; 
+    Integer obj = Integer.valueOf(num);  // Convert int to Integer object
+    System.out.println(obj);  // Output: 10 
+    // umboxing
+    Integer obj = 20;
+    int num = obj.intValue();  // Convert Integer object to int
+    System.out.println(num);  // Output: 20
+    
+//"valueOf()": Converts a string to a wrapper object.
+// "parseX()": converts a string to a primitibe type.
+ex1.    
+    String numStr = "123";
+    int number = Integer.parseInt(numStr);  // Convert String to int
+    double decimalNum = Double.parseDouble("3.14"); // Convert String to double
+
+    System.out.println(number);  // Output: 123
+    System.out.println(decimalNum);  // Output: 3.14
+
+ex2.
+    String numStr = "123";
+    Integer obj = Integer.valueOf(numStr);
+    system.out.println(obj);
+// Random Number Generaators
+//Generate pseudo-random numbers
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+
+        int num = random.nextInt(100) + 1;  // Generates number from 0 to 100
+        System.out.println(num);
+    }
+}
+
+// if these random number was private 
+return random.nextInt();
+or 
+return Math.random(); // this may be wrong
+
+// Random Numbers using Math Class
+//Math.random() generates a double between 0.0 and 1.0
+double randomDouble = Math.random(); // Between 0.0 and 1.0W
+int randomInt = (int) (randomDouble * 100);  // Converts to 0-99
+System.out.println(randomInt);
+
+
+//strings + random 
+
+// EX 1 
+import java.util.Random;
+
+public class Game {
+    private String playerName;  // Private attribute (Encapsulation)
+    private Random random = new Random();  // Random number generator making it private to secure. 
+
+    // Constructor to initialize player name
+    public Game(String playerName) {
+        this.playerName = playerName;
+    }
+
+    // Method to play the game (Generates a random score)
+    public void play() {
+        int score = random.nextInt(100);  // Score between 0-99
+        System.out.println(playerName + " scored " + score + " points!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Game player1 = new Game("Alice");
+        player1.play();  // Example output: Alice scored 76 points!
+    }
+}
+
+// EX 2
+public class Game {
+    private String playerName; // Encapsulation: private field
+
+    // Constructor to set the player's name
+    public Game(String playerName) {
+        this.playerName = playerName;
+    }
+
+    // Play method using Math.random()
+    public void play() {
+        int score = (int) (Math.random() * 100); // Generates a number from 0 to 99
+        System.out.println(playerName + " scored " + score);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Game player1 = new Game("John"); // Create a Game object
+        player1.play(); // Output: "John scored 45" (random number)
+    }
+}
+// EX 3 
+public class Game {
+    private String playerName; // Encapsulation: private field
+
+    // Constructor to set the player's name
+    public Game(String playerName) {
+        this.playerName = playerName;
+    }
+
+    // Private method to generate a random score
+    private int generateRandomScore() {
+        return (int) (Math.random() * 100); // Generates a number from 0 to 99
+    }
+
+    // Play method calls the private random number method
+    public void play() {
+        int score = generateRandomScore(); // Get a random score
+        System.out.println(playerName + " scored " + score);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Game player1 = new Game("John"); // Create a Game object
+        player1.play(); // Output: "John scored 42" (random number)
+    }
+}
+AGAIN
+🔹 Object-Oriented Principles
+OOP Principle	Definition	Example
+Encapsulation	Hiding data inside a class and using methods to access it.	private String name; with getName() method.
+Inheritance	A child class inherits properties from a parent class.	class Dog extends Animal {}
+Polymorphism	The same method behaves differently for different objects.	makeSound() for Dog vs. Cat.
+
 // Abstraction - Hiding complex details, showing only necessary parts.
+// reduces complexity and increses code reusability
+// so an understanding of abstract goes like. you go to a car dealership you ask for a vehicle
+// the sales person ask for what type of vehicle .. if you say a vehicle he gonna think you crazy
+// because vehicles are too abstract of an idea there is specific types of vehicles; car , truck, etc.
+// so when the programmer tries to create Vehicle vehicle = new Vehicle(); the instance would not work due to abstract.
+// creating security
+// Abstract classes cannot be instantiated (you cannot create an object directly).
+// Child classes must provide implementations for abstract methods.
+
+    // Abstract class: Defines a blueprint but cannot be instantiated
+    abstract class Animal {
+        // Abstract method: Must be implemented by subclasses
+        abstract void makeSound(); 
+    }
+    //A concrete class is a class that provides a complete implementation.^
+    //It inherits (extends) from the abstract class and implements abstract methods.
+    class Dog extends Animal{
+        void makeSound(){   // abstract REQUIRES this code in order to function
+            System.out.println("Bark");
+        }
+        void fetchBall() {
+            System.out.println("Fetching the ball!");// ❌ ERROR! Animal does not have fetchBall()
+        }
+    }
+
+    public class Main{
+        public static void main(String[] args){
+            Animal myDog = new Dog();  // this is an example of polymorphism and abstraction
+            myDog.fetchBall(); // ❌ ERROR! Animal does not have fetchBall()
+            myDog.makeSound();
+        }
+    }
+    Animal my Dog = new Dog(); //	Refers to an object of type Dog but treats it as Animal. 
+    // subclass treated by parent class.
+    // Even though myDog stores a Dog object, it can ONLY use methods declared in Animal. hence abstract :)4
+
+// Abstract Data Types (ADTs)
+// define data and operations without specifying implementation details.
+
+// A stack is a linear data structure that follows The last item added is the first one removed.
+    //Think of a stack of plates:
+    //You add plates to the top (push).
+    //You remove the top plate first (pop).
+    //You can check the top plate without removing it (peek).
+    // you can also check if the stack is empty (isEmpty)
+    import java.util.Stack;
+    public class StackExample{
+        public static void main(String[] args) {
+            // Creating a Stack that stores Integer values
+            Stack<Integer> stack = new Stack<>();
+
+            // Pushing elements onto the stack (Adding values)
+            stack.push(10); // Stack now contains: [10]
+            stack.push(20); // Stack now contains: [10, 20]
+            stack.push(30); // Stack now contains: [10, 20, 30]
+             // Peeking (Checking the top element without removing it)
+            System.out.println("Top element: " + stack.peek()); // Output: 30
+            // Popping (Removing the top element)
+             stack.pop(); // Removes 30, stack is now: [10, 20]
+             // Displaying the stack after popping
+            System.out.println("Stack after pop: " + stack); // Output: [10, 20]
+        }
+    }
+// A queue is a linear data structure that follows the FIFO (First In, First Out) principle.
+// Think of a line at a store checkout:z
+//The first person to enter the line is served first.
+    //Add (enqueue)	Inserts an element at the end of the queue.	
+    //Poll (dequeue)	Removes and returns the front element.	
+    //Peek	Returns the front element without removing it.	    
+    //isEmpty	Checks if the queue is empty.
+    import java.util.LinkedList;
+    import java.util.Queue;
+
+    public class QueueExample {
+        public static void main(String[] args) {
+            // Creating a Queue that stores Integer values
+            Queue<Integer> queue = new LinkedList<>(); //  This means the queue will store integers.
+    // In Java, a Queue is implemented using a LinkedList. Hence thee need for import
+            // Enqueue (Adding elements to the queue)
+            queue.add(1); // Queue: [1]
+            queue.add(2); // Queue: [1, 2]
+            queue.add(3); // Queue: [1, 2, 3]
+    
+            // Peeking (Checking the front element without removing it)
+            System.out.println("Front element: " + queue.peek()); // Output: 1
+    
+            // Dequeue (Removing the front element)
+            queue.poll(); // Removes 1, Queue is now: [2, 3]
+    
+            // Displaying the queue after removing an element
+            System.out.println("Queue after poll: " + queue); // Output: [2, 3]
+        }
+    }
+    
+// File Writing in Java
+//This code demonstrates how to write to a file in Java using FileWriter. 
+// Let’s break it down, define key concepts, and explain how it works.
+// Import required Java classes for file writing
+import java.io.FileWriter;
+import java.io.IOException;  // Handles potential file errors
+
+public class FileWriteExample {
+    public static void main(String[] args) {
+        // Try-with-resources ensures FileWriter is closed automatically
+        try (FileWriter writer = new FileWriter("output.txt")) { // If output.txt exists, it overwrites it. if not it creates a new file.
+            // Writing text into the file
+            writer.write("Hello, Java File Writing"); //Writes the string inside the output.txt
+            
+            // Confirmation message printed in the console
+            System.out.println("File written successfully.");
+        } 
+        // Handling errors related to file operations
+        catch (IOException e) {
+            e.printStackTrace(); // Prints error details if writing fails
+        }
+    }
+}
+//////////////////////////////////////////////////////
+        What Does This Code Do?
+Creates (or overwrites) a file named output.txt.
+Writes text ("Hello, Java File Writing") into the file.
+Prints "File written successfully." in the console.
+Handles potential errors using try-catch (to prevent crashes).
+----------------------------------------------
+    When Should You Use FileWriter?
+Saving User Input	Store data entered by the user.
+Logging System Events	Keep records of actions or errors.
+Saving Game Progress	Store player stats, scores, and progress.
+Generating Reports	Save reports in a .txt file.
+////////////////////////////////////////////////
+
+
+// In Java, try and catch are used to handle exceptions (errors) gracefully so that the program does not crash when something goes wrong.
+    try block: Contains the code that might cause an exception.
+    catch block: Handles the exception (error) if it occurs.
+// so basically you can use this to keep a program running without crashing because you testing the code expecting a crash.
+
+
+// File Reading in Java
+// Import necessary classes for file reading
+import java.io.File;  // Represents a file in Java
+import java.io.FileNotFoundException;  // Exception if file is missing
+import java.util.Scanner;  // Scanner to read file content
+
+public class FileReadExample {
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(new File("output.txt"))) { // Opens output.txt for reading- If the file does NOT exist, an error occurs.
+            
+            // Corrected loop: Reads the file line by line
+            while (scanner.hasNextLine()) { 	// Returns true if another line exists in the file.
+                System.out.println(scanner.nextLine()); // Reads and prints each line from the file
+            }
+        } catch (FileNotFoundException e) { // if file doesn't exist
+            System.out.println("Error: File not found!"); // User-friendly error message
+            e.printStackTrace(); // Print full error details (for debugging)
+        }
+    }
+}
+
+////////////////////////////////////////////////////
+    What Does This Code Do?
+Opens and reads a file named output.txt.
+Prints each line from the file to the console.
+Handles potential errors (e.g., if the file does not exist).
+--------------------------------------------------------------
+                When Should You Use File Reading?
+Reading Configuration Files	Load user settings, app configurations, etc.
+Processing Log Files	Analyze logs generated by applications.
+Loading Game Data	Read saved game progress.
+Reading User Input Files	Read user-generated content for processing.
+/////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -623,7 +943,7 @@ PRACTICE ACTITVITY (OPTIONAL)
 // Getter and Setter method. 
 //Write the code to create and display a student object.
 //we can also do a car and make two cars and have them race.
-// Logical Operators. 
+
 
 
 
