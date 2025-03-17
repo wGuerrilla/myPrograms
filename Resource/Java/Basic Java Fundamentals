@@ -59,7 +59,7 @@ public class Main{
 
     public class Main{
         public static void main(String[] args){ // Preferable to use sc instead of a scannerName
-            Scanner sc = new Scaneer(System.in);  // we are performing a litte bit of (OOP)objectOreintedProgramming
+            Scanner sc = new Scanner(System.in);  // we are performing a litte bit of (OOP)objectOreintedProgramming
             // Ex. asking for a name
             System.out.println("Name;");
             String name = sc.nextLine();    // declare a variable, 4 string; take user input and assign it to a variable \\
@@ -917,24 +917,301 @@ Loading Game Data	Read saved game progress.
 Reading User Input Files	Read user-generated content for processing.
 /////////////////////////////////////////////////////////////////////////
 
+- Inheritance (IS-A Relationship)
+Inheritance allows a class (subclass) to acquire the properties (fields/variables) 
+and behaviors (methods) of another class (superclass).
+Code Reusability: Avoids rewriting the same code.
+Hierarchical Structure: Organizes related classes.
+Extensibility: Allows for adding more features in subclasses.
 
+Sytanx : class SubClass extends SuperClass {}
 
+// Parent class (Superclass)
+class Vehicle {
+    String brand;  // This variable is common to all vehicles
+    int speed;     // Speed attribute
 
+    // Common method for all vehicles
+    void honk() {
+        System.out.println("Beep! Beep!");  // All vehicles honk
+    }
+}
 
+// Child class (Subclass) that inherits from Vehicle
+class Car extends Vehicle {  // 'extends' means it inherits from Vehicle  - Car IS-A Vehicle
+    int doors;  // Additional attribute specific to Cars
 
+    // Method to display details about the car
+    void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h, Doors: " + doors);
+    }
+}
 
+// Demonstration of Inheritance
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();  // Creating an object of Car (which is a Vehicle)
+        myCar.brand = "Toyota";  // Accessing inherited variable from Vehicle class
+        myCar.speed = 120;       // Setting speed (from Vehicle class)
+        myCar.doors = 4;         // Setting doors (specific to Car class)
 
+        myCar.honk();   // Inherited method from Vehicle
+        myCar.display(); // Calls method from Car class
+    }
+}
 
+// Benefits of Inheritance
+ // Code Reusability : Avoids duplication by reusing common code.
+ // Hierarchial Structure : Organize related classes.
+ // Extensibility : You can easily add new behaviors in subclasses.
 
+ Composition (HAS-A Relationship)
+when an object contains another object as a field.
+Instead of inheriting behavior, it includes another class inside it.
+ -Encapsulation : Hides details and improves maintainability.
+ -Better Flexibility : Components can be reused independently.
+ -No Fragile Base Class Problem : Avoids issues caused by deep inheritance trees.
 
+- supports better encapsulations
+- enhance modularity.
+- promote usability
+- more flexibility then inheritance.
 
+// Class representing an Engine
+class Engine {
+    // Method to start the engine
+    void start() {
+        System.out.println("Engine is starting...");
+    }
+}
 
+// Class representing a Car
+class Car {
+    // Composition: Car HAS-A Engine
+    Engine engine = new Engine();  
 
+    // Method to start the car, which starts the engine first
+    void startCar() {
+        engine.start();  // Calling Engine's method
+        System.out.println("Car is ready to drive.");
+    }
+}
 
+// Demonstration of Composition
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();  // Creating a Car object
+        myCar.startCar();  // Calls startCar(), which starts the engine first
+    }
+}
+ 
+Encapsulation → Keeps each class focused on a single responsibility.
+More Flexibility → Can swap or modify components easily.
+Avoids Fragile Inheritance → No risk of affecting the entire hierarchy.
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Another example for HAS-A
+// private ensures encapsulation—other classes cannot directly modify.
+import java.util.ArrayList;
 
+public class Animal { 
+    private String name;     // private break into public and get.
 
+    public Animal(String name){ // any name for public _____ (String name)
+        // Animal object with a name
+        this.name = name;           // this . private name  = name ^  
+    }
 
+///////////////////////////////////////////
+This is a constructor (a special method that runs when we create an Animal).
+String name → This is a parameter (the value we give when creating an Animal).
+this.name = name; → Assigns the input name to the name variable of the object.1 Animal cow = new Animal("Cow");  naming em.
+////////////////////////////////////////////////////////////
+
+    public String getName(){ // getName << any name lol >>>> get_____ 
+        return name; // return the private command we JUST opened.
+    } 
+    It returns the name of the animal so we can access it later.
+}
+
+// Barn class that contains multiple animals
+public class Barn{ // class represents a storage space for animals.
+    private ArrayList<Animal>animals; // Composition. HAS-A arraylist of Animals. 
+    // The <Animal> part means this list will store only Animal objects. 
+    public Barn(){ // breaking private. 
+        animals = new ArrayList<>();
+    }
+
+/////////////////////////////
+This is the constructor for the Barn class.
+It initializes the animals list so it is ready to store animals.
+Without this line, the list would be null, and trying to add items would cause an error.
+/////////////////////////////////////////////////
+/// 
+    public void addAnimal(Animal animal){ // u see void u call later ....
+//animal (right side) → A placeholder that holds whatever Animal object gets passed in.
+//When you call addAnimal(cow);, it replaces animal with cow.
+        animals.add(animal); // the animals <- is from the ArrayList<> ; above^ yeah theses names kinda got me confused.
+        System.out.println(animal.getName() + " has been added to the barn!");  // Confirmation message
+    }
+    public void showAnimals(){
+        if (animals.size() == 0) {  
+            System.out.println("The barn is empty! No animals here. ");
+        } else {  
+        System.out.println("The barn contains the following animals:");
+        for (int i = 0; i < animals.size(); i++) {  
+            System.out.println((i + 1) + ". " + animals.get(i).getName());  
+        }
+    }  // i like this i dont understand the ( String : animal )  fuck dat i dont need it this is better.
+}
+
+Using composition in Main 
+
+public class Main {
+    public static void main(String[] args){
+        Barn barn = new Barn(); // Create a `Barn` object to store animals
+        Animal cow = new Animal("cow"); //  Create Animal objects using the `Animal` class
+        Animal horse = new Animal("horse");
+        barn.addAnimal(cow);
+        barn.addAnimal(horse); // Add the Animal objects to the `barn`
+        barn.showAnimals()
+    }
+}
+output- 
+Cow has been added to the barn!
+Horse has been added to the barn!
+Sheep has been added to the barn!
+
+The barn contains the following animals:
+1. cow
+2. horse
+/////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+///  teacher code below
+encapsulatess behaviour for better code manage
+avoids fragile base case problem.
+inheritance (is-a) vs composition(has-a)
+
+when to use inheritance when classes shar common behavior.
+clear hierarchical relationship
+
+whem to use composition?
+when behaviour should be encapsulated
+when flexibility is needed for modifications.
+example - animal inheritance hierarchy
+clas Animml{
+    String name;
+    void makeSound(){
+        System.out.println("Animal makes a sound")
+    }
+}
+class Dog extends Animal{
+    void makeSound(){
+        System.out.println("bark")
+    }
+}
+
+example composition - animal with heart.
+class Heart{
+    void beat(){
+        System.out.println("beep")
+    }
+}
+class Animal{
+    Heart heart = new Heart();
+    void live(){
+        heart.beat();
+    }
+}
+
+understand when to use inheritance vs composition
+write maintainable codeapple these concepts in real world projects.
+
+Main.java
+public class Main{
+    public static void main(String[] args) {
+        Farmer fred = new Farmer("Fred");
+        fred.showBarn();
+        fred.takeAnimal();
+        fred.showTruck();
+    }
+}
+Barn.java 
+import java.util.*; 
+public class Barn{
+    private Animals addAnimals;
+    private ArrayList<Animals> pens = new ArrayList<>();
+    public Barn() {
+        Animals addAnimals = new Animals();
+        addAnimals = new Animals("cow", 2000);
+        pens.add(addAnimals);
+        addAnimals = new Animals("chicken", 5);
+        pens.add(addAnimals);
+        addAnimals = new Animals("horse", 1500);
+        pens.add(addAnimals);
+        addAnimals = new Animals("goat", 60);
+        pens.add(addAnimals);
+    }
+    public void setAnimal(String type, int weight){
+        addAnimals = new Animals(type, weight);
+        pens.add(addAnimals);
+    }
+    public int getSize(){
+        return pens.size();
+    }
+    public void showAnimals(){
+        for (int i = 0, i < pens.size(); i++){
+            addAnimals = pens.get(i);
+            System.out.println("In the Barn" + addAnimals.getName())
+        }
+    }
+    public Animals getAnimal(int pen){
+        addAnimals = pens.get(pen);
+        System.out.println("taking " + addAnimals.getName());
+        return addAnimals;
+    }
+}
+Farmer.java
+import java.util.*;
+public class Farmer {
+    private String name;
+    private Animals truckPens;
+    private ArrayList<Animals> truck = new ArrayList<>();
+    private Barn redBarn = new Barn();
+    public Farmer(String name){
+        this.name = name;
+    }
+    public void takeAnimal(){
+        truck.add(redBarn.getAnimal(2));
+        truck.add(redBarn.getAnimal(0));
+    }
+    public void showTruck(){
+        for(int i = 0; i < truck.size(); i++){
+            truckPens = truck.get(i);
+            System.out.println("inside the truck" + truckPens.getName());
+        }
+    }
+    public void showBarn(){
+        redBarn.showAnimals();
+    }
+}
+Animals.java 
+public class Animals{
+    private String type;
+    private int weight;
+    public Animals(){
+        this.type = "Unknown";
+        this.weight = weight;
+    }
+    public String getName(){
+        return "Type: " + type + " Weight: " + weight;
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 PRACTICE ACTITVITY (OPTIONAL)
 // create a student class with:
@@ -943,86 +1220,3 @@ PRACTICE ACTITVITY (OPTIONAL)
 // Getter and Setter method. 
 //Write the code to create and display a student object.
 //we can also do a car and make two cars and have them race.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-chatgpt -- 
-Variables - think of them as containers that store data values
-    ex. int number = 5; // number is the variable that holds integer values
-Methods - Blocks of code that perform specific tasks and can be called when needed.
-    ex. public void greet(){
-        System.out.println("hello world.")
-    }
-Object-Oriented Programming (OOP) Concepts
-Java is a object-oriented programming language.
-which means it uses objects to model real-world entitties.
-dont get it ? Classes and Objects 
-Class : A blueprint for creating objects. it defines attributes(variables) and behaviors(methods).
-Objects: An instance of a class. It has its own state and can perform behaviors defined by its class.
-    ex. public class Unkown{
-        //Attributes 
-        String color;
-        String model;
-        //Method
-        public void Beast(){
-            System.out.println("The Guerrilla on Da MOVE")
-        }
-    }
-    //Creating an object
-    Guerrilla myBeast = new Unkown();
-    myBeast.color = "darkPurple";
-    myBeast.weight = "300Ibs";
-    myBeast.move();
-Inheritance : A mechanism where one class(subclass) inherits attributes and methods
-  // OPTIONAL : GENERATING RANDOM.
-                //Random variableName = new Random();  // dataType variableName remember?
-                //int x = variableName.nextInt();
-                // understanding that if you want a number from 0 - 6... nextInt(7)
-                //double y = variableName.nextDouble();
-                // Manipulate as need for each dataType 
-            }
-// Graphical User Interface
-// we the to impo+
-import from library.;
-import javax.swing.JOptionPane;
-
-public class Main{
-    public static void main(String[] args){
-        String name = JOptionPane.showInputDialog(" blah "); // we need user input stored a string variable
-        JOptionPane.showMessageDialog(null, " hi " + name); // show output of user input // 
-        int ah = Integer.parseInt // when using dataType use the Apporiate Assignment to Intialize ?
-           (JOptionPane.ShowInputDIalogBox(" aaa"))
-         
-    }
-}
-// Switches (Efficent If statement) 
-// a statement that allows a variable to be tested for equality against a list of values, it cane execute a number of possible paths.
-public class Main{
-    public static void main(String[] args)
-    String day ="Jummah"; // this is our first case. we are going to be using this to compare to the case..
-    switch(day) { // manipulates any dataType
-        case "yak" : System.out.println(" kho "); // case variableName : if there is a match what do you want to do ? 
-        break;
-        case "doo" : System.out.println(" kho ");
-        break;
-        // breaks off the code. why its important?
-        // it prints all the code if not placed.
-        default : System.out.println("chi meehgee");
-        // if not is conditions is true then. it prints this. 
-    }
-}
